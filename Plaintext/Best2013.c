@@ -1,3 +1,14 @@
+/* Filename: Best2013.c
+ * Author: neko2k (neko2k@beige-box.com)
+ * Website: http://www.beige-box.com
+ * Description: Plaintext version of the code I wrote for our robotics team.
+ *
+ * Please check the file LICENSE.TXT for information on how you may use this
+ * source code. In the event you did not recieve a copy of the license,
+ * please contact support@beige-box.com for help.
+ */
+
+
 #include "Main.h"
 
 void main(void)
@@ -27,7 +38,9 @@ void main(void)
 		/* Call the function that brings the arm down for compliance. */
 		if(MotorBringDown == 0) /* Run if variable is 0 (false) */
 		{
-			/* This call runs the function and puts the return value (1) into a variable. */
+			/* This call runs the function and puts the return value (1) into a variable. 
+			 * Since the above if statement checks if MotorBringDown is equal to 0 and we
+			 * set it to 1, this call never runs again. */
 			MotorBringDown = MotorCompliance(); 
 		}
 
@@ -37,7 +50,7 @@ void main(void)
 		ProgramGo = GetJoystickDigital(1,5,1); //Channel 5, Button 1 (DOWN)
 		if(ProgramGo == 1)
 		{
-			MotorStop = 1; //Block all Raisy activity untill this is set to 0
+			MotorStop = 1; //Block all Raisy activity until this is set to 0
 		}
 
 		if(MotorStop == 1)
@@ -56,7 +69,7 @@ void main(void)
 		else
 		{
 			/* Get the value of Joystick channel 3 and return it to an unsigned
-			 * int - it ranges from -127 to 127 */
+			 * int since the joysticks range from -127 to 127 */
 			MotorPos = GetJoystickAnalog(1,3); 
 			if(MotorPos > 10) 
 			{
